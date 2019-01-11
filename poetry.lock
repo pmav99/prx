@@ -80,6 +80,14 @@ version = "0.4.1"
 
 [[package]]
 category = "dev"
+description = "A Python utility / library to sort Python imports."
+name = "isort"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "4.3.4"
+
+[[package]]
+category = "dev"
 description = "More routines for operating on iterables, beyond itertools"
 name = "more-itertools"
 optional = false
@@ -175,7 +183,7 @@ python-versions = "*"
 version = "0.10.0"
 
 [metadata]
-content-hash = "b7914f61e3f6e661f554ef4afff12c46c97bd8d2c57461755e147bead658dc5d"
+content-hash = "9878a44f79f433ae297a057f49d510ae943317546ab5d1ef271adb0b42617682"
 python-versions = "^3.7"
 
 [metadata.hashes]
@@ -187,6 +195,7 @@ cleo = ["7a5000de616de42fd78f968192651b9174bf333a9079fc9d68ccc672ddfd3624", "a39
 click = ["2335065e6395b9e67ca716de5f7526736bfa6ceead690adf616d925bdc622b13", "5b94b49521f6456670fdb30cd82a4eca9412788a93fa6dd6df72c94d5a8ff2d7"]
 clikit = ["7bbd38fcb912058c689a03f487a66f8d1eb1f486bc5cf68d4a5798093bd0217f", "e23ac911afb7079ae0e4d89af73ee0d31c8952c64ef4fcf76bcd46bfde9aabaa"]
 colorama = ["05eed71e2e327246ad6b38c540c4a3117230b19679b875190486ddd2d721422d", "f8ac84de7840f5b9c4e3347b3c1eaa50f7e49c2b07596221daec5edaabbd7c48"]
+isort = ["1153601da39a25b14ddc54955dbbacbb6b2d19135386699e2ad58517953b34af", "b9c40e9750f3d77e6e4d441d8b0266cf555e7cdabdcff33c4fd06366ca761ef8", "ec9ef8f4a9bc6f71eec99e1806bfa2de401650d996c59330782b89a5555c1497"]
 more-itertools = ["38a936c0a6d98a38bcc2d03fdaaedaba9f412879461dd2ceff8d37564d6522e4", "c0a5785b1109a6bd7fac76d6837fd1feca158e54e521ccd2ae8bfe393cc9d4fc", "fe7a7cae1ccb57d33952113ff4fa1bc5f879963600ed74918f1236e212ee50b9"]
 munch = ["6ae3d26b837feacf732fb8aa5b842130da1daf221f5af9f9d4b2a0a6414b0d51"]
 pastel = ["3108af417ec0fa6d0a620e676ec4f02c839ca13e10611586e5d2174b46aa0bc3", "d1fee8079534f99f1805a044fef946d23eee6d6a7cd34292c30e6c16be9a80b9"]
