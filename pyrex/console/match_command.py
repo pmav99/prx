@@ -70,5 +70,5 @@ class MatchCommand(Command):
         text = resolve_source(params.source)
         matches = re.findall(params.regex, text)
         if params.nth:
-            self.line(matches[params.nth])
+            self.line(matches[params.nth - 1])
         self.line(params.separator.join(matches))
