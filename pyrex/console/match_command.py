@@ -71,4 +71,5 @@ class MatchCommand(Command):
         matches = re.findall(params.regex, text)
         if params.nth:
             self.line(matches[params.nth - 1])
-        self.line(params.separator.join(matches))
+        else:
+            self.line(params.separator.join(matches))
