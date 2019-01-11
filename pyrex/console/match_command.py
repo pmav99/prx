@@ -46,7 +46,7 @@ class MatchCommand(Command):
         {
             "regex": And(str, len),
             Optional("source"): Or(None, str),
-            Optional("nth"): And(Use(int), lambda n: 0 <= n),
+            Optional("nth"): And(Use(int), lambda n: n >= 0),
             Optional("separator"): And(str, Use(str.lower)),
         }
     )
