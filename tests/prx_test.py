@@ -1,4 +1,4 @@
-from pyrex import __version__
+from prx import __version__
 
 
 def test_version():

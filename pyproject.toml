@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "pyrex"
+name = "prx"
 version = "0.1.0"
 description = ""
 authors = ["Panos Mavrogiorgos <pmav99@gmail.com>"]
@@ -16,7 +16,7 @@ black = {version= "^18.9b0", allows-prereleases = true}
 isort = "^4.3"
 
 [tool.poetry.scripts]
-pyrex = 'pyrex.console:main'
+prx = 'prx.console:main'
 
 [tool.black]
 line-length = 88
