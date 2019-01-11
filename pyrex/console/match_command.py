@@ -1,13 +1,9 @@
-import pathlib
 import re
-import sys
 
-from pprint import pprint as pp
-
-from schema import Schema, And, Or, Optional, Use
+from schema import And, Optional, Or, Schema, Use
 
 from .command import Command
-
+from .utils import read_source
 
 _MATCH_HELP = """\
 The <info>match</> command returns matches of the <c1><regex></> pattern found in
@@ -17,20 +13,12 @@ The found matches are printed to <u>STDOUT</> separated by the <c1>(--separator)
 """
 
 
-def resolve_source(source):
-    """ Resolve the `source` and return the input as string.  """
-    if source is None:
-        text = sys.stdin.read()
-    else:
-        path = pathlib.Path(source)
-        if path.exists():
-            text = path.read_text()
-        else:
-            text = source
-    return text
-
-
 class MatchCommand(Command):
+
+    # TODO make nth accept a multiple values (e.g. 1,2,3,7-10)
+    # TODO figure out how to handle not finding matches
+    # TODO add support for printing one per line
+
     """
     Find matches of pattern in source
 
@@ -39,8 +27,9 @@ class MatchCommand(Command):
         {source? : The source of the text on which we want to find matches}
         {--nth=0 : Return the Nth match. If <c1>nth</> < 1, we return all matches}
         {--s|separator=, : The separator to use for the matches. Defaults to a single string ' '}
-
     """
+
+    help = " ".join(_MATCH_HELP.splitlines()).strip()
 
     schema = Schema(
         {
@@ -51,13 +40,11 @@ class MatchCommand(Command):
         }
     )
 
-    help = " ".join(_MATCH_HELP.splitlines()).strip()
-
     def handle(self):
         # We can't set the default value of the separator on the signature until
         # https://github.com/sdispater/cleo/issues/64 is resolved
         params = self.parse_parameters()
-        text = resolve_source(params.source)
+        text = read_source(params.source)
         matches = re.findall(params.regex, text)
         if params.nth:
             self.line(matches[params.nth - 1])
