@@ -4,7 +4,6 @@ import sys
 
 from pprint import pprint as pp
 
-import munch
 from schema import Schema, And, Or, Optional, Use
 
 from .command import Command
@@ -53,15 +52,6 @@ class MatchCommand(Command):
     )
 
     help = " ".join(_MATCH_HELP.splitlines()).strip()
-
-    def parse_parameters(self, validate=True):
-        params = {
-            **{key: self.option(key) for key in self._config.options},
-            **{key: self.argument(key) for key in self._config.arguments},
-        }
-        if isinstance(self.schema, Schema) and validate:
-            params = self.schema.validate(params)
-        return munch.munchify(params)
 
     def handle(self):
         # We can't set the default value of the separator on the signature until
