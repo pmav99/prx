@@ -2,7 +2,7 @@ import pathlib
 import sys
 
 
-def read_source(source):
+def read_source(source=None):
     """ Read the data from `source` and return the input as string.  """
     if source is None:
         text = sys.stdin.read()
