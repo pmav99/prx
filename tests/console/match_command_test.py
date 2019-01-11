@@ -5,7 +5,7 @@ from cleo import Application
 from cleo import CommandTester
 import pytest
 
-from pyrex.console.match_command import MatchCommand
+from prx.console.match_command import MatchCommand
 
 
 def cleo_tester(command_class, command_name):

@@ -2,7 +2,7 @@ import io
 
 import pytest
 
-from pyrex.console.utils import read_source
+from prx.console.utils import parse_nths, read_source
 
 
 def test_read_source_from_path(tmp_path):

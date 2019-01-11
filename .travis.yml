@@ -12,7 +12,7 @@ cache:
 
 install:
   - pip install pip -U
-  - python get-poetry.py -y
+  - curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python3
   - source $HOME/.poetry/env
   - poetry install -v
 
@@ -20,8 +20,6 @@ script: pytest -q tests/
 
 jobs:
   include:
-    - python: "2.7"
-    - python: "3.5"
     - python: "3.6"
     - python: "3.7"
       dist: xenial
