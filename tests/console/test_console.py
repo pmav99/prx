@@ -38,3 +38,22 @@ class TestMatch(object):
         self.tester.execute(f""" '\\w+' {tmp} --separator=',' """)
         assert self.tester.io.fetch_output() == "asdf,qwer" + os.linesep
         assert self.tester.status_code == 0
+
+    @pytest.mark.parametrize(
+        "sep,expected",
+        [
+            (",", "98,23" + os.linesep),
+            (" ", "98 23" + os.linesep),
+            ("-", "98-23" + os.linesep),
+            ("/", "98/23" + os.linesep),
+            # XXX Not currently working. Need to check
+            # ("\\", r"98\\23" + os.linesep),
+            ("\n", "98\n23" + os.linesep),
+            ("\t", "98\t23" + os.linesep),
+        ],
+    )
+    def test_use_different_separators(self, sep, expected):
+        self.tester.execute(f""" '\\d+' 'asdf 98 qwer 23' --separator='{sep}' """)
+        print(self.tester.io.fetch_output())
+        assert self.tester.io.fetch_output() == expected
+        assert self.tester.status_code == 0
